@@ -11,13 +11,13 @@ Meteor.publish('foodsSearch', function(query) {
 
         _.each(data.businesses, function(item) {
           console.log(item.name);
-          // var doc = {
-          //   thumb: item.volumeInfo.imageLinks.smallThumbnail,
-          //   title: item.volumeInfo.title,
-          //   link: item.volumeInfo.infoLink,
-          //   snippet: item.searchInfo && item.searchInfo.textSnippet
-          // };
+          var doc = {
+            title: item.name,
+            image: item.image_url,
+            rating: item.rating_img_url
+          };
 
+          self.added('foods', Random.id(), doc);
 
         });
       });
@@ -25,7 +25,6 @@ Meteor.publish('foodsSearch', function(query) {
     //
 
     //
-    //   self.added('books', Random.id(), doc);
     // });
 
     self.ready();
