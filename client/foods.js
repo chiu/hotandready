@@ -9,7 +9,7 @@ Tracker.autorun(function() {
   }
 });
 
-Template.food.events({
+Template.body.events({
   'submit form': function(event, template) {
     event.preventDefault();
     var query = template.$('input[type=text]').val();
@@ -19,7 +19,7 @@ Template.food.events({
   }
 });
 
-Template.food.helpers({
+Template.body.helpers({
   foods: function() {
     return Foods.find();
   },
