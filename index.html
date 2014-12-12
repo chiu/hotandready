@@ -1,0 +1,33 @@
+<head>
+  <title>Hot and Ready</title>
+</head>
+
+<body>
+  <form>
+    <input type="text" name="query">
+    <input type="submit" value="Search">
+  </form>
+
+  {{#if searching}}
+    <p>Searching...</p>
+  {{else}}
+    {{#if foods.count}}
+      <hr>
+      <table>
+        {{#each foods}}
+          {{> food}}
+        {{/each}}
+      </table>
+    {{/if}}
+  {{/if}}
+</body>
+
+<template name="food">
+  <tr>
+    <td class="image"><img src="{{poster}}"></td>
+    <td>
+      <a href="{{link}}" target="_blank">{{title}}</a>
+      <p>{{year}}</p>
+    </td>
+  </tr>
+</template>
